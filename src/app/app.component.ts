@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
 import { User } from './model/user';
 import { DialogDeleteComponent } from './components/dialog-delete.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +12,7 @@ import { DialogDeleteComponent } from './components/dialog-delete.component';
 export class AppComponent {
   users: User[] | null = null;
 
-  constructor(private http: HttpClient, public dialog: DialogDeleteComponent) {
+  constructor(private http: HttpClient, public dialog: MatDialog) {
     http
       .get<User[]>('https://jsonplaceholder.typicode.com/users')
       .pipe(delay(1000))
@@ -21,6 +22,7 @@ export class AppComponent {
   }
 
   deleteHandler(userToDelete: User) {
+    console.log('here ', userToDelete);
     const dialogRef = this.dialog.open(DialogDeleteComponent, {
       width: '250px',
       data: userToDelete,
