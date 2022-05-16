@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './app/material-module';
 
 import { AppComponent } from './app/app.component';
+import { DialogDeleteComponent } from './app/components/dialog-delete.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { AppComponent } from './app/app.component';
     ReactiveFormsModule,
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent],
+  declarations: [AppComponent, DialogDeleteComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

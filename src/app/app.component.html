@@ -1,1 +1,23 @@
-<h1>Hello Material</h1>
+<mat-list>
+  <ng-container *ngFor="let user of users">
+    <mat-list-item>
+      <h3 mat-line>{{ user.name }}</h3>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+      </mat-menu>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>
