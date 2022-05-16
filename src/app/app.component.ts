@@ -22,13 +22,14 @@ export class AppComponent {
   }
 
   deleteHandler(userToDelete: User) {
-    console.log('here ', userToDelete);
+    console.log('cancello ', userToDelete);
     const dialogRef = this.dialog.open(DialogDeleteComponent, {
       width: '250px',
       data: userToDelete,
     });
 
     dialogRef.afterClosed().subscribe((id: number) => {
+      console.log('exiting dialog');
       if (id) {
         this.http
           .delete(
